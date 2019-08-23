@@ -1,0 +1,45 @@
+
+// green , yellow , red (in this order)
+
+int switchState = 0;
+void setup() {
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(2, INPUT);
+}
+
+void loop(){
+  switchState = digitalRead(2);
+  if (switchState == LOW){
+  // the button is not pressed
+
+  digitalWrite(5, HIGH); //green LED
+  digitalWrite(4, HIGH); //yellow LED
+  digitalWrite(3, HIGH); //red LED}
+  }
+  
+  else{
+    
+  start:
+  digitalWrite(5, LOW);
+  digitalWrite(4, LOW);
+  digitalWrite(3, HIGH);
+
+  delay(1000); // wait for a quarter seconds
+  
+  digitalWrite(5, LOW);
+  digitalWrite(4, HIGH);
+  digitalWrite(3, LOW);
+
+  delay(1000);
+  
+  digitalWrite(5, HIGH);
+  digitalWrite(4, LOW);
+  digitalWrite(3, LOW);
+
+  delay(1000);
+  goto start;
+  }
+
+}
