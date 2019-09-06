@@ -1,4 +1,4 @@
-//CS-490-5/IoT-Robotics(Osama Alhaiki, Tariq and Mikaela Cubon)
+//CS-490-5/IoT-Robotics(Osama Alhaiki, Tariq Salay and Mikaela Cubon)
 
 
 #include <SoftwareSerial.h>
