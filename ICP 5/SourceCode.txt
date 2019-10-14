@@ -1,1 +1,258 @@
 
+//formatted form below:
+
+[
+    {
+        "id": "c54ea492.02e4a8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "331dcb8f.d36944",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e56f3f81.1bf11",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d2f614ad.388e88",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "8d529b00.582078",
+        "type": "inject",
+        "z": "c54ea492.02e4a8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 160,
+        "wires": [
+            [
+                "7884ff38.991dd"
+            ]
+        ]
+    },
+    {
+        "id": "e4c61de6.9b5a3",
+        "type": "debug",
+        "z": "c54ea492.02e4a8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 351,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7884ff38.991dd",
+        "type": "function",
+        "z": "c54ea492.02e4a8",
+        "name": "return the date ",
+        "func": "var date = new Date(msg.playload); // creating a date object from playload\n\nmsg.payload = date.toString(); // changing the fromate to a Date string\n\nreturn msg; // return the msg to be sent on",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "e4c61de6.9b5a3"
+            ]
+        ]
+    },
+    {
+        "id": "d115c828.a933c8",
+        "type": "inject",
+        "z": "331dcb8f.d36944",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 440,
+        "wires": [
+            [
+                "851f0fa1.91745"
+            ]
+        ]
+    },
+    {
+        "id": "851f0fa1.91745",
+        "type": "openweathermap",
+        "z": "331dcb8f.d36944",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Kansas city",
+        "country": "United states",
+        "language": "en",
+        "x": 250,
+        "y": 300,
+        "wires": [
+            [
+                "247c378d.247e48"
+            ]
+        ]
+    },
+    {
+        "id": "193ee1f6.8017ce",
+        "type": "debug",
+        "z": "331dcb8f.d36944",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.description",
+        "targetType": "msg",
+        "x": 710,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "58564a0b.c0f734",
+        "type": "e-mail",
+        "z": "331dcb8f.d36944",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "osamaesam95@gmail.com",
+        "dname": "",
+        "x": 720,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "247c378d.247e48",
+        "type": "function",
+        "z": "331dcb8f.d36944",
+        "name": "extractEmailMessege",
+        "func": "msg = {payload: msg.payload['description']}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 440,
+        "wires": [
+            [
+                "58564a0b.c0f734",
+                "193ee1f6.8017ce"
+            ]
+        ]
+    }
+]
+
